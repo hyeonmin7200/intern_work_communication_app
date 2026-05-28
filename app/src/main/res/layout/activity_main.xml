@@ -18,9 +18,13 @@
         android:layout_centerInParent="true"
         android:gravity="center"
         android:padding="8dp"
-        android:background="@drawble/bg_edit"
+        android:minHeight="48dp"
+        android:hint = "메시지 입력"
         />
-
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
 
 
 </RelativeLayout>
