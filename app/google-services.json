@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "808988080163",
+    "firebase_url": "https://intern-hallym-default-rtdb.firebaseio.com",
+    "project_id": "intern-hallym",
+    "storage_bucket": "intern-hallym.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:808988080163:android:6acfc6abe240003da8d996",
+        "android_client_info": {
+          "package_name": "com.example.intern_hallym"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-QEZqxYOYfyOZutV2twMk06ke-w3IUh4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
