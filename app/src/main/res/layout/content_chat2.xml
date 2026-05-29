@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:weightSum="1">
 <androidx.recyclerview.widget.RecyclerView
-    android:id = "@+id/recyview"
+    android:id = "@+id/recycleView"
     android:layout_width="match_parent"
     android:layout_height="0dp"
     android:layout_weight="1"/>
@@ -18,16 +18,18 @@
     android:orientation="horizontal"
     android:weightSum="1">
     <EditText
-        android:id="@+id/EditText"
+        android:id="@+id/et"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+        android:inputType="text"/>
     <Button
-        android:id="@+id/Button"
-        android:textSize="12dp"
+        android:id="@+id/btnSend"
+        android:textSize="12sp"
         android:text = "SEND"
         android:layout_width="80dp"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        tools:ignore="Accessibility"/>
 
 </LinearLayout>
 </LinearLayout>

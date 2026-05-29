@@ -11,11 +11,15 @@ import java.util.ArrayList;
 // 🌟 파일 이름과 똑같이 ChatAdp로 대장 이름을 맞춰주었어!
 public class ChatAdp extends RecyclerView.Adapter<ChatAdp.ChatViewHolder> {
 
-    private ArrayList<String> chatList;
+    private ArrayList<Chatdata> chatlist;
+    private android.content.Context context;
+    private String nickname;
 
     // 생성자 이름도 파일 이름과 똑같이 ChatAdp로 변경!
-    public ChatAdp(ArrayList<String> chatList) {
-        this.chatList = chatList;
+    public ChatAdp(ArrayList<Chatdata> chatlist,android.content.Context context,String nickname) {
+        this.chatlist = chatlist;
+        this.context = context;
+        this.nickname = nickname;
     }
 
     // 1️⃣ [기차 칸 찍어내기] item_chat.xml 도면을 눈에 보이는 부품으로 만드는 곳
@@ -29,14 +33,14 @@ public class ChatAdp extends RecyclerView.Adapter<ChatAdp.ChatViewHolder> {
     // 2️⃣ [글자 배달하기] 만들어진 부품 상자에 진짜 채팅 글씨를 적어주는 곳
     @Override
     public void onBindViewHolder(@NonNull ChatViewHolder holder, int position) {
-        String text = chatList.get(position);
-        holder.tvMessage.setText(text);
+        Chatdata data = chatlist.get(position);
+        holder.tvMessage.setText(data.getMsg());
     }
 
     // 3️⃣ [개수 세기] 총 몇 개의 말풍선을 그려야 하는지 세어주는 곳
     @Override
     public int getItemCount() {
-        return chatList != null ? chatList.size() : 0;
+        return chatlist != null ? chatlist.size() : 0;
     }
 
     // ⭐ [멱살잡이 주머니] 글자 상자(TextView)를 꽉 붙잡고 있는 주머니방

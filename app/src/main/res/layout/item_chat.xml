@@ -4,16 +4,22 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:gravity="right"
     android:padding="12dp"
     >
+    <TextView
+        android:id = "@+id/Textnickname"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="20sp"/>
     <TextView
         android:id = "@+id/Tvmsg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text = "텍스트가 들어갑니다."
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textColor="#000000"
         android:background="#EAEAEA"
         android:padding="10dp"
         />
+
 </LinearLayout>
