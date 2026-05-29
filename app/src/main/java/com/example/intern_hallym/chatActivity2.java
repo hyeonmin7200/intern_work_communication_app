@@ -29,6 +29,7 @@ public class chatActivity2 extends AppCompatActivity {
     private EditText edmsg;
     private Button btnSend;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +56,6 @@ public class chatActivity2 extends AppCompatActivity {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance("https://intern-hallym-default-rtdb.firebaseio.com/");
         DatabaseReference myRef = database.getReference("message");
-
         myRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {

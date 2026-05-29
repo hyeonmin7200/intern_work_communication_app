@@ -3,6 +3,8 @@ package com.example.intern_hallym;
 import android.view.View;
 import android.widget.EditText;
 import androidx.recyclerview.widget.RecyclerView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 public class ChatSendLisner  implements View.OnClickListener{
     private EditText edmsg;
@@ -22,10 +24,12 @@ public class ChatSendLisner  implements View.OnClickListener{
 
         if(!msg.isEmpty()){
             Chatdata newData = new Chatdata(msg);
-            chatlist.add(newData);
 
-            myAdp.notifyItemInserted(chatlist.size()-1);
-            recycle.scrollToPosition(chatlist.size()-1);
+
+            FirebaseDatabase database = FirebaseDatabase.getInstance("https://intern-hallym-default-rtdb.firebaseio.com/");
+            DatabaseReference myRef = database.getReference("message");
+
+            myRef.push().setValue(newData);
 
             edmsg.setText("");
         }

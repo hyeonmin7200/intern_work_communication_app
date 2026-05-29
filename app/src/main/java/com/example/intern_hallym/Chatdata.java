@@ -3,6 +3,9 @@ import java.io.Serializable;
 public class Chatdata {
     private String msg;
     private String nickname;
+    public Chatdata(){
+
+    }
     public Chatdata(String msg){
         this.msg = msg;
     }
