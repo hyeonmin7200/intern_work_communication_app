@@ -1,8 +1,9 @@
-package com.example.intern_hallym;
+package com.example.intern_hallym.activity_output;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 // ... 필요한 import들 ...
+import com.example.intern_hallym.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 

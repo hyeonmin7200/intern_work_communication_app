@@ -1,7 +1,6 @@
-package com.example.intern_hallym;
+package com.example.intern_hallym.activity_output;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -12,6 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.intern_hallym.adapter.ChatAdp;
+import com.example.intern_hallym.chatdata.Chatdata;
+import com.example.intern_hallym.R;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

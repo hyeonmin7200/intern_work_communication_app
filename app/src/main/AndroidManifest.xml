@@ -12,11 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Internhallym">
         <activity
-            android:name=".MainActivity"
+            android:name=".activity_output.MainActivity"
             android:exported="false" >
         </activity>
         <activity
-            android:name=".chatActivity2"
+            android:name=".activity_output.chatActivity2"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

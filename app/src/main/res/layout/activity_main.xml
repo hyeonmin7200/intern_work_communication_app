@@ -6,9 +6,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width = "match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".activity_output.MainActivity"
     >
-
     <EditText
         android:id= "@+id/et"
         android:layout_width="wrap_content"
@@ -21,11 +20,5 @@
         android:minHeight="48dp"
         android:hint = "메시지 입력"
         />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
-
-
 </RelativeLayout>
 
