@@ -18,10 +18,10 @@ public class LoginActivity extends AppCompatActivity{
     protected void onCreate(Bundle saveInstanceState){
         super.onCreate(saveInstanceState);
 
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
-        etNickname = findViewById(R.id.et);
-        enter_bt = findViewById(R.id.enter_btn);
+        etNickname = findViewById(R.id.etlogin);
+        enter_bt = findViewById(R.id.login_Btn);
 
         enter_bt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,8 +32,11 @@ public class LoginActivity extends AppCompatActivity{
                     Toast.makeText(LoginActivity.this ,"닉네임을 입력하셔야합니다.",Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    Intent intent = new Intent(LoginActivity.this,chatActivity2.class);
+                    Intent intent = new Intent(LoginActivity.this,RoomListActivity.class);
+
+                    intent.putExtra("userNick",nickname);
                     startActivity(intent);
+                    finish();
                 }
             }
         });

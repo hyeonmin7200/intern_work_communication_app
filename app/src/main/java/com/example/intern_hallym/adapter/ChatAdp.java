@@ -49,7 +49,7 @@ public class ChatAdp extends RecyclerView.Adapter<ChatAdp.ChatViewHolder> {
             holder.tvNickname.setText(("알 수 없음"));
         }
 
-        if(data.getNickname() != null && data.getNickname().equals("춘식이")){
+        if(data.getNickname() != null && data.getNickname().equals(myNick)){
             holder.layoutContainer.setGravity(Gravity.END);
             holder.tvNickname.setGravity(Gravity.END);
             holder.tvNickname.setVisibility(View.GONE);

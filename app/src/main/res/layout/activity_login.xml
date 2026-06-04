@@ -6,7 +6,37 @@
     android:layout_height="match_parent"
     tools:context=".activity_output.LoginActivity"
     android:padding ="20dp">
-
-
+    <TextView
+        android:id = "@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text ="닉네임을 입력"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"/>
+    <EditText
+        android:id="@+id/etlogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="35dp"
+        android:gravity="center"
+        android:layout_below ="@id/tvTitle"
+        android:hint="닉네임 입력(8글자 이하 입력)"
+        android:ems="10"
+        android:maxLength="8"
+        android:inputType="text"
+        android:minHeight="48dp"/>
+    <Button
+        android:id="@+id/login_Btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below ="@id/etlogin"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:text="로그인"
+        android:textSize="16sp"/>
 
 </RelativeLayout>

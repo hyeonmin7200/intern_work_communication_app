@@ -1,6 +1,7 @@
 package com.example.intern_hallym.activity_output;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -27,7 +28,8 @@ public class chatActivity2 extends AppCompatActivity {
     // 🧼 쓰지 않는 유령 변수들 깔끔하게 정리!
     private RecyclerView recyclerView;
     private ArrayList<Chatdata> chatlist;
-    private String nick = "내닉네임";
+    private String nick = "익명";
+    private String roomName ="기본방";
     private EditText edmsg;
     private Button btnSend;
 
@@ -38,6 +40,12 @@ public class chatActivity2 extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.content_chat2);
 
+        if(getIntent()!= null && getIntent().hasExtra("userNick")){
+            nick = getIntent().getStringExtra("userNick");
+        }
+        if(getIntent().hasExtra("roomName")){
+            roomName = getIntent().getStringExtra("roomName");
+        }
         // 1️⃣ 리사이클러뷰(화면 레일) 연결 및 매니저 설정
         recyclerView = findViewById(R.id.recycleView); // XML 이름표와 일치 확인!
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -57,7 +65,23 @@ public class chatActivity2 extends AppCompatActivity {
         btnSend.setOnClickListener(chatSendLisner);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance("https://intern-hallym-default-rtdb.firebaseio.com/");
-        DatabaseReference myRef = database.getReference("message");
+        DatabaseReference myRef = database.getReference("rooms").child(roomName).child("chats");
+
+        btnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String message = edmsg.getText().toString().trim();
+
+                if(!message.isEmpty()){
+                    Chatdata chat = new Chatdata(message,nick);
+
+                    myRef.push().setValue(chat);
+
+                    edmsg.setText("");
+                }
+            }
+        });
+
         myRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {

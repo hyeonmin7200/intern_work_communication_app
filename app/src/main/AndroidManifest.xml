@@ -11,12 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Internhallym">
-        <activity
-            android:name=".activity_output.MainActivity"
-            android:exported="false" >
-        </activity>
-        <activity
-            android:name=".activity_output.chatActivity2"
+        <activity android:name=".activity_output.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,8 +19,17 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".activity_output.MainActivity"
+            android:exported="false" >
+        </activity>
+        <activity
+            android:name=".activity_output.chatActivity2"
+            android:exported="true">
 
-
-
+        </activity>
+        <activity
+            android:name=".activity_output.RoomListActivity"
+            android:exported="false" />
     </application>
 </manifest>
