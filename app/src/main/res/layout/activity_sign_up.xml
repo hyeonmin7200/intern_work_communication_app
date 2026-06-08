@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="activity_output.Sign_up_activity"
+    android:padding="20dp"
+    android:background="#FFFFFF"
+    >
+    <TextView
+        android:id="@+id/tvSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text ="회원가입"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="40dp"/>
+    <EditText
+        android:id="@+id/etsignUp_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="사용할 아이디 입력(이메일)"
+        android:inputType="textEmailAddress"
+        android:layout_below="@id/tvSignUp"
+        android:layout_marginBottom="16dp"/>
+
+    <EditText
+        android:id="@+id/etSignUp_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="비밀번호 입력(8자리 이상)"
+        android:inputType="textPassword"
+        android:layout_below="@id/etsignUp_id"
+        android:layout_marginBottom="16dp"/>
+
+    <EditText
+        android:id="@+id/etSignUpNickname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="닉네임 입력"
+        android:inputType="text"
+        android:layout_below="@id/etSignUp_pwd"
+        android:layout_marginBottom="40dp"/>
+    <Button
+        android:id="@+id/btnSignUpRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etSignUpNickname"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:text="가입 완료"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        />
+
+</RelativeLayout>

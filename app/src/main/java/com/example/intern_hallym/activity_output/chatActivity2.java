@@ -25,7 +25,7 @@ import java.util.ArrayList;
 
 public class chatActivity2 extends AppCompatActivity {
 
-    // 🧼 쓰지 않는 유령 변수들 깔끔하게 정리!
+
     private RecyclerView recyclerView;
     private ArrayList<Chatdata> chatlist;
     private String nick = "익명";
@@ -46,18 +46,18 @@ public class chatActivity2 extends AppCompatActivity {
         if(getIntent().hasExtra("roomName")){
             roomName = getIntent().getStringExtra("roomName");
         }
-        // 1️⃣ 리사이클러뷰(화면 레일) 연결 및 매니저 설정
+        // 리사이클러뷰(화면 레일) 연결 및 매니저 설정
         recyclerView = findViewById(R.id.recycleView); // XML 이름표와 일치 확인!
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // 2️⃣ 진짜 채팅 데이터 바구니 생성
+        // 진짜 채팅 데이터 바구니 생성
         chatlist = new ArrayList<>();
 
-        // 3️⃣ 어댑터 로봇 조립 및 레일에 장착
+        //  어댑터 로봇 조립 및 레일에 장착
         ChatAdp myAdp = new ChatAdp(chatlist, chatActivity2.this, nick);
         recyclerView.setAdapter(myAdp);
 
-        // 4️⃣ 입력창과 버튼 연결
+        // 입력창과 버튼 연결
         edmsg = findViewById(R.id.et);
         btnSend = findViewById(R.id.btnSend);
 

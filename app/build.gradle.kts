@@ -68,4 +68,9 @@ dependencies {
     androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.test.manifest)
     debugImplementation(libs.ui.tooling)
+
+    // 파이어베이스 인증 라이브러리 (이미 있다면 통과)
+    implementation("com.google.firebase:firebase-auth:23.0.0")
+// 🚨 [추가] 구글 로그인 전용 플레이 서비스 라이브러리
+    implementation("com.google.android.gms:play-services-auth:21.2.0")
 }
