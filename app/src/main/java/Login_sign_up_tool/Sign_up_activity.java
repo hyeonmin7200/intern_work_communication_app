@@ -1,4 +1,4 @@
-package com.example.intern_hallym.activity_output;
+package Login_sign_up_tool;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
