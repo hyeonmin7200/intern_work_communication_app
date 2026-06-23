@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -12,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.intern_hallym.Image_File.Image_tool;
 import com.example.intern_hallym.adapter.ChatAdp;
 import com.example.intern_hallym.chatdata.Chatdata;
 import com.example.intern_hallym.R;
@@ -32,6 +35,7 @@ public class chatActivity2 extends AppCompatActivity {
     private String roomName ="기본방";
     private EditText edmsg;
     private Button btnSend;
+    private Image_tool imageTool;
 
 
     @Override
@@ -39,6 +43,23 @@ public class chatActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.content_chat2);
+
+        imageTool = new Image_tool(this, new Image_tool.OnImageUploadListener() {
+            @Override
+            public void onUploadSuccess(String imageUrl) {
+                Toast.makeText(chatActivity2.this,"사진 전송 완료!",Toast.LENGTH_SHORT).show();
+
+                sendImageMessage(imageUrl);
+            }
+
+            @Override
+            public void onUploadFailure(String errorMessage) {
+                Toast.makeText(chatActivity2.this,"오류 발생:"+ errorMessage,Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        ImageButton btnGallery = findViewById(R.id.btn_gallery);
+        btnGallery.setOnClickListener(v -> imageTool.openGallery());
 
         if(getIntent()!= null && getIntent().hasExtra("userNick")){
             nick = getIntent().getStringExtra("userNick");
@@ -107,5 +128,15 @@ public class chatActivity2 extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {}
         });
 
+    }
+    private void sendImageMessage(String imageUrl){
+        FirebaseDatabase database = FirebaseDatabase.getInstance("https://intern-hallym-default-rtdb.firebaseio.com/");
+        DatabaseReference myRef = database.getReference("rooms").child(roomName).child("chats");
+        Chatdata chat = new Chatdata(imageUrl,nick);
+
+        myRef.push().setValue(chat)
+                .addOnFailureListener(e->{
+                    Toast.makeText(chatActivity2.this,"디비 저장 실패"+e.getMessage(),Toast.LENGTH_SHORT).show();
+                });
     }
 }

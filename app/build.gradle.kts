@@ -42,6 +42,7 @@ android {
 }
 
 dependencies {
+    implementation("com.google.firebase:firebase-storage:21.0.1")
     implementation(platform(libs.compose.bom))
     implementation(libs.activity.compose)
     implementation(libs.activity.ktx)
@@ -75,4 +76,6 @@ dependencies {
     implementation("androidx.credentials:credentials:1.2.2")
 // 🚨 [추가] 구글 로그인 전용 플레이 서비스 라이브러리
     implementation("com.google.android.gms:play-services-auth:21.2.0")
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+
 }

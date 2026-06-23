@@ -4,11 +4,13 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.intern_hallym.chatdata.Chatdata;
 import com.example.intern_hallym.R;
 
@@ -40,22 +42,36 @@ public class ChatAdp extends RecyclerView.Adapter<ChatAdp.ChatViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ChatViewHolder holder, int position) {
         Chatdata data = chatlist.get(position);
-        holder.tvMessage.setText(data.getMsg());
+        String message = data.getMsg();
+        if(message != null && (message.startsWith("http://") || message.startsWith("https://"))){
+            holder.tvMessage.setVisibility(View.GONE);
+            holder.ivMessage.setVisibility(View.VISIBLE);
 
-        if(data.getNickname() != null){
-            holder.tvNickname.setText(data.getNickname());
+            Glide.with(context)
+                    .load(message)
+                    .into(holder.ivMessage);
         }
         else{
-            holder.tvNickname.setText(("알 수 없음"));
+            holder.ivMessage.setVisibility(View.GONE);
+            holder.tvMessage.setVisibility(View.VISIBLE);
+            holder.tvMessage.setText(message);
+        }
+        if (data.getNickname() != null) {
+            holder.tvNickname.setText(data.getNickname());
+        } else {
+            holder.tvNickname.setText("알 수 없음");
         }
 
-        if(data.getNickname() != null && data.getNickname().equals(myNick)){
+        // 3️⃣ [좌우 정렬 구역] 내가 보내면 오른쪽, 상대가 보내면 왼쪽!
+        if (data.getNickname() != null && data.getNickname().equals(myNick)) {
+            // 내가 보낸 경우 -> 오른쪽 정렬 및 내 닉네임 숨기기
             holder.layoutContainer.setGravity(Gravity.END);
             holder.tvNickname.setGravity(Gravity.END);
             holder.tvNickname.setVisibility(View.GONE);
-        }
-        else{
+        } else {
+            // 상대방이 보낸 경우 -> 왼쪽 정렬 및 상대 닉네임 보여주기
             holder.layoutContainer.setGravity(Gravity.START);
+            holder.tvNickname.setGravity(Gravity.START); // 상대방 이름도 왼쪽에 정렬
             holder.tvNickname.setVisibility(View.VISIBLE);
         }
     }
@@ -71,11 +87,13 @@ public class ChatAdp extends RecyclerView.Adapter<ChatAdp.ChatViewHolder> {
         TextView tvMessage;
         TextView tvNickname;
         LinearLayout layoutContainer;
+        ImageView ivMessage;
         public ChatViewHolder(@NonNull View itemView) {
             super(itemView);
             tvMessage = itemView.findViewById(R.id.Tvmsg);
             tvNickname = itemView.findViewById(R.id.Textnickname);
             layoutContainer = itemView.findViewById(R.id.layout_container);
+            ivMessage = itemView.findViewById(R.id.ivMessage);
         }
     }
 }

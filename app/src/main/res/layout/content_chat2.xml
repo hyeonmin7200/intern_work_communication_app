@@ -17,6 +17,14 @@
     android:layout_height="80dp"
     android:orientation="horizontal"
     android:weightSum="1">
+    <ImageButton
+        android:id="@+id/btn_gallery"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@android:drawable/ic_menu_camera"
+        android:background="?android:attr/selectableItemBackground"
+        android:scaleType="centerInside"
+        android:contentDescription="사진 선택"/>
     <EditText
         android:id="@+id/et"
         android:layout_width="0dp"

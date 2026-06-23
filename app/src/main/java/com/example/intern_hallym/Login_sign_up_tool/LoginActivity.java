@@ -1,4 +1,4 @@
-package Login_sign_up_tool;
+package com.example.intern_hallym.Login_sign_up_tool;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -23,13 +23,14 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.HashMap;
-
 
 public class LoginActivity extends AppCompatActivity{
     private EditText etLoginID,etLoginpwd;
     private Button login_Btn, sign_up_btn;
     private FirebaseAuth mAuth;
+
+    private com.google.android.gms.common.SignInButton btGoogleLogin; // XML에 있는 구글 버튼용
+    private Google_login_tool googleLoginTool;
 
     @Override
     protected void onCreate(Bundle saveInstanceState){
@@ -37,13 +38,22 @@ public class LoginActivity extends AppCompatActivity{
         setContentView(R.layout.activity_login);
         mAuth = FirebaseAuth.getInstance();
 
-
+        googleLoginTool = new Google_login_tool(LoginActivity.this);
 
         etLoginID = findViewById(R.id.etLoginID);
         etLoginpwd = findViewById(R.id.etLoginpwd);
         login_Btn = findViewById(R.id.login_Btn);
         sign_up_btn = findViewById(R.id.sign_up_btn);
 
+
+        btGoogleLogin = findViewById(R.id.btnGoogleLogin);
+
+        btGoogleLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                googleLoginTool.SignIn();
+            }
+        });
         sign_up_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
