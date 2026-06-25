@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "808988080163-tna60b8i68u7md4joured8s8dliv4u3e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.intern_hallym",
+            "certificate_hash": "06ca1cf3c1c9c16a547f14d030b8ecd9941cc447"
+          }
+        },
+        {
           "client_id": "808988080163-dr9ctsrtp3polh10ge5mnrm623jmcb19.apps.googleusercontent.com",
           "client_type": 3
         }

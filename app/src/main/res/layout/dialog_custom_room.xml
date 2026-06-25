@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="새로운 채팅방 생성"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"
+        android:textColor="@android:color/black"/>
+
+    <EditText
+        android:id="@+id/dialogEtRoomName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="방 이름을 입력하세요"
+        android:inputType="text"
+        android:layout_marginBottom="12dp"/>
+    <EditText
+        android:id="@+id/dialogEtPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="비밀번호 입력"
+        android:inputType="textPassword"
+        android:layout_marginBottom="12dp"/>
+
+    <EditText
+        android:id="@+id/dialogEtMaxCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="최대 인원수"
+        android:inputType="number"
+        android:layout_marginBottom="12dp"/>
+</LinearLayout>
